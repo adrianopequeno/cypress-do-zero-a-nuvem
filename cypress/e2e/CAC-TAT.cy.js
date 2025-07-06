@@ -85,14 +85,25 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   //   cy.get('.success').should('be.visible');
   // });
 
+  // it('envia o formulário com sucesso usando um comando customizado', () => {
+  //   const data = {
+  //     firstName: 'Beltrano',
+  //     lastName: 'Freitas',
+  //     email: 'bel.freitas@hotmail.com',
+  //     textArea: 'Teste',
+  //   };
+  //   cy.fillMandatoryFieldsAndSubmit(data);
+  //   cy.get('.success').should('be.visible');
+  // });
+
   it.only('envia o formulário com sucesso usando um comando customizado', () => {
-    const data = {
-      firstName: 'Beltrano',
-      lastName: 'Freitas',
-      email: 'bel.freitas@hotmail.com',
-      textArea: 'Teste',
-    };
-    cy.fillMandatoryFieldsAndSubmit(data);
+    // const data = {
+    //   firstName: 'Beltrano',
+    //   lastName: 'Freitas',
+    //   email: 'bel.freitas@hotmail.com',
+    //   textArea: 'Teste',
+    // };
+    cy.fillMandatoryFieldsAndSubmit();
     cy.get('.success').should('be.visible');
   });
 });
