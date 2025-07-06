@@ -1,4 +1,5 @@
 describe('Central de Atendimento ao Cliente TAT', () => {
+  const longText = Cypress._.repeat('abcdefghijklmnopqrstuvwxyz', 10);
   // antes de cada teste esse bloco de código vai ser executado
   beforeEach(() => {
     // visita uma página local
@@ -17,9 +18,20 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#firstName').type('Fulano');
     cy.get('#lastName').type('da Silva');
     cy.get('#email').type('fulano@hotmail.com');
-    cy.get('#open-text-area').type('Obrigado');
+    cy.get('#open-text-area').type(longText, { delay: 0 });
     cy.get('button[type="submit"]').click();
 
     cy.get('.success').should('be.visible');
+  });
+
+  it.only('exibe mensagem de error ao submeter o formuário com um email com formatação enválida', () => {
+    cy.get('#firstName').type('Fulano');
+    cy.get('#lastName').type('da Silva');
+    /** email com  formação inválida */
+    cy.get('#email').type('fulano.hotmail.com');
+    cy.get('#open-text-area').type(longText, { delay: 0 });
+    cy.get('button[type="submit"]').click();
+
+    cy.get('.error').should('be.visible');
   });
 });
