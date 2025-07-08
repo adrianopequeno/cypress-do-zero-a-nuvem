@@ -125,7 +125,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('be.checked');
   });
 
-  it.only('marca cada tipo de atendimento', () => {
+  it('marca cada tipo de atendimento', () => {
     // Seleciona todos os inputs do tipo radio na página
     cy.get('input[type="radio"]')
       // Verifica se existem exatamente 3 radio buttons
@@ -137,5 +137,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         // Verifica se o radio button atual está marcado
         cy.wrap($radio).should('be.checked');
       });
+  });
+
+  it.only('marca ambos checkboxes, depois desmarca o último', () => {
+    cy.get('input[type="checkbox"]')
+      .check()
+      .should('be.checked')
+      .last()
+      .uncheck()
+      .should('not.be.checked');
   });
 });
