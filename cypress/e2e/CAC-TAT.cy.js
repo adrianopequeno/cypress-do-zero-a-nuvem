@@ -175,4 +175,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         expect(input[0].files[0].name).to.equal('example.json');
       });
   });
+
+  /* Este teste verifica se o link "Política de Privacidade":
+    1. Possui o atributo href apontando para "privacy.html"
+    2. Possui o atributo target="_blank" que faz o link abrir em uma nova aba
+    O teste não precisa clicar no link para fazer essa verificação, apenas checa os atributos
+ */
+  it.only('verifica que a política de privacidade abre em outra aba sem a necessidade de um clique', () => {
+    cy.contains('a', 'Política de Privacidade')
+      .should('have.attr', 'href', 'privacy.html')
+      .and('have.attr', 'target', '_blank');
+  });
 });
