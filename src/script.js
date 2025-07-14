@@ -19,7 +19,7 @@ document.querySelector('button[type="submit"]').addEventListener(
   'click',
   function (event) {
     event.preventDefault();
-    const firstNameField = document.getElementById('firstname');
+    const firstNameField = document.getElementById('firstName');
     const lastNameField = document.getElementById('lastName');
     const emailField = document.getElementById('email');
     const textareaField = document.getElementById('open-text-area');
