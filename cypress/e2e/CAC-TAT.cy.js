@@ -192,7 +192,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   // 2. Remove o atributo target="_blank" do link para que ele abra na mesma aba
   // 3. Clica no link
   // 4. Verifica se o texto "CAC TAT - Política de Privacidade" está visível na nova página
-  it.only('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
+  it('acessa a página da política de privacidade removendo o target e então clicando no link', () => {
     cy.contains('a', 'Política de Privacidade')
       .invoke('removeAttr', 'target')
       .click();
