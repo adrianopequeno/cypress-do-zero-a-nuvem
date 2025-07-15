@@ -263,4 +263,17 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       expect(response.body).to.include('CAC TAT');
     });
   });
+
+  it('exibe e oculta o gato com .invoke()', () => {
+    cy.get('#cat')
+      .should('not.be.visible')
+      .invoke('show')
+      .should('be.visible')
+      .and('contain', '🐈');
+    // .invoke('hide')
+    // .should('not.be.visible');
+
+    cy.get('#title').invoke('text', 'CAT TAT').should('have.text', 'CAT TAT');
+    cy.get('#subtitle').invoke('text', 'Eu 😍 gatos.');
+  });
 });
